@@ -1,0 +1,267 @@
+/*
+Theme Name: OLSOLIFE Premium
+Theme URI: https://olsolife-demo.vercel.app/
+Author: NEXORA Studio (maquette de démonstration)
+Description: Thème WordPress sur mesure pour OLSOLIFE, fournisseur d'équipement d'irrigation solaire à El Kelâa des Sraghna. Thème de blocs, sans plugin payant, sans Elementor. Version de démonstration : les contenus marqués [À confirmer] doivent être validés par OLSOLIFE avant toute publication officielle.
+Version: 2.0.0
+Requires at least: 6.2
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: olsolife
+Tags: block-theme, custom-logo, featured-images, full-site-editing
+*/
+
+:root {
+  --olsolife-green: #1b4332;
+  --olsolife-deep: #123524;
+  --olsolife-natural: #2e7d4f;
+  --olsolife-base: #faf7f2;
+  --olsolife-charcoal: #1f2937;
+  --olsolife-yellow: #f2c14e;
+  --olsolife-muted: #4b5563;
+  --olsolife-white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  background: var(--olsolife-base);
+  color: var(--olsolife-charcoal);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  color: var(--olsolife-green);
+  text-wrap: balance;
+}
+
+a { color: var(--olsolife-green); }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--olsolife-yellow);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute; inset-inline-start: -9999px; top: 0;
+  background: var(--olsolife-yellow); color: var(--olsolife-charcoal);
+  padding: 0.75rem 1rem; z-index: 100;
+}
+.skip-link:focus { inset-inline-start: 0; }
+
+/* ---- Anchored sections: never clipped under the sticky header ---- */
+main [id] { scroll-margin-top: 96px; }
+
+/* ---- Header ---- */
+.olsolife-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--olsolife-white);
+  border-bottom: 1px solid #e5e0d5;
+  box-shadow: 0 2px 12px rgba(27, 67, 50, 0.08);
+}
+.olsolife-header-inner {
+  max-width: 1320px; margin: 0 auto;
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 0.85rem 1.25rem;
+}
+.olsolife-wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em;
+  color: var(--olsolife-green); text-decoration: none; white-space: nowrap;
+}
+.olsolife-wordmark span { color: var(--olsolife-natural); }
+.olsolife-nav { margin-inline-start: auto; }
+.olsolife-nav ul {
+  display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0;
+}
+.olsolife-nav a {
+  color: var(--olsolife-charcoal); text-decoration: none; font-weight: 600;
+}
+.olsolife-nav a:hover { color: var(--olsolife-natural); text-decoration: underline; }
+
+.olsolife-btn {
+  display: inline-block; padding: 0.7rem 1.4rem; border-radius: 999px;
+  font-weight: 700; text-decoration: none; text-align: center;
+  border: 2px solid transparent; cursor: pointer; font-size: 1rem;
+}
+.olsolife-btn-primary { background: var(--olsolife-green); color: var(--olsolife-white); }
+.olsolife-btn-primary:hover { background: var(--olsolife-deep); color: var(--olsolife-white); }
+.olsolife-btn-accent { background: var(--olsolife-yellow); color: var(--olsolife-charcoal); }
+.olsolife-btn-accent:hover { background: #e0aa2e; color: var(--olsolife-charcoal); }
+.olsolife-btn-outline {
+  background: transparent; color: var(--olsolife-white);
+  border-color: var(--olsolife-white);
+}
+.olsolife-btn-outline:hover { background: var(--olsolife-white); color: var(--olsolife-green); }
+
+/* Mobile menu: <details> works with AND without JavaScript */
+.olsolife-mobile-menu { display: none; margin-inline-start: auto; }
+.olsolife-mobile-menu summary {
+  list-style: none; cursor: pointer; font-weight: 700;
+  background: var(--olsolife-green); color: var(--olsolife-white);
+  padding: 0.6rem 1.1rem; border-radius: 999px;
+}
+.olsolife-mobile-menu summary::-webkit-details-marker { display: none; }
+.olsolife-mobile-menu[open] summary { background: var(--olsolife-deep); }
+.olsolife-mobile-menu nav {
+  position: absolute; inset-inline: 0; top: 100%;
+  background: var(--olsolife-white); border-bottom: 1px solid #e5e0d5;
+  padding: 1rem 1.25rem 1.5rem;
+  box-shadow: 0 12px 24px rgba(27, 67, 50, 0.12);
+}
+.olsolife-mobile-menu nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.olsolife-mobile-menu nav a { color: var(--olsolife-charcoal); text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+.olsolife-mobile-menu .olsolife-btn { margin-top: 1rem; width: 100%; box-sizing: border-box; }
+.olsolife-header { position: sticky; }
+.olsolife-mobile-menu { position: static; }
+.olsolife-header-inner { position: relative; }
+
+/* ---- Sections ---- */
+.olsolife-section { padding: 4.5rem 1.25rem; }
+.olsolife-section-inner { max-width: 1140px; margin: 0 auto; }
+.olsolife-section-alt { background: var(--olsolife-white); }
+.olsolife-section-dark { background: var(--olsolife-green); color: var(--olsolife-white); }
+.olsolife-section-dark h2, .olsolife-section-dark h3 { color: var(--olsolife-white); }
+.olsolife-eyebrow {
+  color: var(--olsolife-natural); font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; font-size: 0.85rem; margin: 0 0 0.5rem;
+}
+.olsolife-section-dark .olsolife-eyebrow { color: var(--olsolife-yellow); }
+.olsolife-lead { font-size: 1.2rem; color: var(--olsolife-muted); max-width: 42rem; }
+.olsolife-section-dark .olsolife-lead { color: #d9e2dc; }
+
+/* Hero */
+.olsolife-hero { position: relative; color: var(--olsolife-white); overflow: hidden; }
+.olsolife-hero img.olsolife-hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.olsolife-hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(18, 53, 36, 0.62);
+}
+.olsolife-hero-inner {
+  position: relative; z-index: 1; max-width: 1140px; margin: 0 auto;
+  padding: 6.5rem 1.25rem 5.5rem;
+}
+.olsolife-hero h1 {
+  color: var(--olsolife-white); font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  max-width: 42rem; margin: 0 0 1rem;
+}
+.olsolife-hero p.olsolife-hero-sub {
+  font-size: 1.25rem; max-width: 38rem; margin: 0 0 2rem; color: #eef2ef;
+}
+.olsolife-hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.olsolife-photo-note {
+  font-size: 0.85rem; color: var(--olsolife-muted); margin-top: 1rem;
+}
+.olsolife-hero .olsolife-photo-note { color: #d9e2dc; }
+
+/* Editorial rows */
+.olsolife-editorial {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+  margin-bottom: 4rem;
+}
+.olsolife-editorial:last-child { margin-bottom: 0; }
+.olsolife-editorial-flip .olsolife-editorial-media { order: 2; }
+.olsolife-editorial-media img {
+  width: 100%; height: 100%; min-height: 320px; object-fit: cover;
+  border-radius: 12px; display: block;
+}
+.olsolife-editorial h3 { font-size: 1.75rem; margin-top: 0; }
+
+/* Cards */
+.olsolife-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.olsolife-card {
+  background: var(--olsolife-white); border: 1px solid #e5e0d5; border-radius: 12px;
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.olsolife-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.olsolife-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.olsolife-card-body h3 { margin: 0; font-size: 1.35rem; }
+.olsolife-card-body p { margin: 0; }
+.olsolife-card-body .olsolife-btn { margin-top: auto; align-self: flex-start; }
+
+/* Placeholder notes: high contrast, never presented as fact */
+.olsolife-placeholder {
+  background: #fef3c7; color: #1f2937;
+  border-inline-start: 4px solid var(--olsolife-yellow);
+  padding: 0.6rem 0.9rem; font-size: 0.95rem; font-weight: 600;
+}
+
+/* Projects placeholder tiles */
+.olsolife-project-tile { position: relative; border-radius: 12px; overflow: hidden; }
+.olsolife-project-tile img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.olsolife-project-tile figcaption {
+  position: absolute; inset-inline: 0; bottom: 0;
+  background: rgba(18, 53, 36, 0.85); color: var(--olsolife-white);
+  padding: 0.75rem 1rem; font-weight: 700; font-size: 0.95rem;
+}
+
+/* Quote form */
+.olsolife-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.olsolife-form .olsolife-field-full { grid-column: 1 / -1; }
+.olsolife-form label { display: block; font-weight: 700; margin-bottom: 0.35rem; }
+.olsolife-form input, .olsolife-form select, .olsolife-form textarea {
+  width: 100%; box-sizing: border-box; padding: 0.8rem 1rem;
+  border: 1.5px solid #c9c2b4; border-radius: 8px; font-size: 1rem;
+  background: var(--olsolife-white); color: var(--olsolife-charcoal);
+}
+.olsolife-form small { color: var(--olsolife-muted); }
+.olsolife-form-status { font-weight: 700; min-height: 1.5em; }
+
+/* Floating WhatsApp button */
+.olsolife-whatsapp-float {
+  position: fixed; inset-inline-end: 1.25rem; bottom: 1.25rem; z-index: 60;
+  background: #25d366; color: #fff; text-decoration: none; font-weight: 700;
+  padding: 0.85rem 1.3rem; border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer */
+.olsolife-footer { background: var(--olsolife-deep); color: #d9e2dc; }
+.olsolife-footer a { color: var(--olsolife-white); }
+.olsolife-footer h3 { color: var(--olsolife-white); }
+.olsolife-footer-grid {
+  max-width: 1320px; margin: 0 auto; padding: 3.5rem 1.25rem 2rem;
+  display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1fr; gap: 2.5rem;
+}
+.olsolife-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 1320px; margin: 0 auto; padding: 1.25rem;
+  font-size: 0.9rem; text-align: center;
+}
+
+/* Maps button: full width on small screens */
+.olsolife-maps-btn { display: inline-block; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .olsolife-nav, .olsolife-header-cta { display: none; }
+  .olsolife-mobile-menu { display: block; }
+  .olsolife-editorial { grid-template-columns: 1fr; gap: 1.5rem; }
+  .olsolife-editorial-flip .olsolife-editorial-media { order: 0; }
+  .olsolife-grid-3 { grid-template-columns: 1fr; }
+  .olsolife-form { grid-template-columns: 1fr; }
+  .olsolife-footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .olsolife-section { padding: 3rem 1.25rem; }
+  .olsolife-hero-inner { padding: 4.5rem 1.25rem 3.5rem; }
+  .olsolife-maps-btn { width: 100%; box-sizing: border-box; }
+  .olsolife-whatsapp-float { inset-inline-end: 1rem; bottom: 1rem; }
+}
+
+/* RTL readiness: layout uses logical properties (inset-inline, margin-inline-start) */
+[dir="rtl"] .olsolife-editorial-flip .olsolife-editorial-media { order: 2; }
+@media (max-width: 900px) {
+  [dir="rtl"] .olsolife-editorial-flip .olsolife-editorial-media { order: 0; }
+}

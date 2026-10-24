@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        { "color": "#1B4332", "name": "Vert forêt", "slug": "primary" },
+        { "color": "#123524", "name": "Vert profond", "slug": "deep" },
+        { "color": "#2E7D4F", "name": "Vert agricole", "slug": "natural" },
+        { "color": "#FAF7F2", "name": "Blanc chaud", "slug": "base" },
+        { "color": "#1F2937", "name": "Charbon", "slug": "charcoal" },
+        { "color": "#F2C14E", "name": "Jaune solaire", "slug": "accent" },
+        { "color": "#FEF3C7", "name": "Jaune pâle (notes)", "slug": "note" },
+        { "color": "#FFFFFF", "name": "Blanc", "slug": "white" }
+      ]
+    },
+    "layout": { "contentSize": "1140px", "wideSize": "1320px" },
+    "spacing": {
+      "spacingScale": { "steps": 7 },
+      "units": ["px", "rem", "%"]
+    },
+    "typography": {
+      "fontFamilies": [
+        { "fontFamily": "Georgia, 'Times New Roman', serif", "name": "Titres (serif système)", "slug": "display" },
+        { "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif", "name": "Texte (sans système)", "slug": "body" }
+      ],
+      "fontSizes": [
+        { "name": "Petit", "size": "0.875rem", "slug": "small" },
+        { "name": "Normal", "size": "1rem", "slug": "medium" },
+        { "name": "Grand", "size": "1.25rem", "slug": "large" },
+        { "name": "Très grand", "size": "1.75rem", "slug": "x-large" },
+        { "name": "Héro", "size": "clamp(2.25rem, 5.5vw, 3.75rem)", "slug": "hero" }
+      ]
+    }
+  },
+  "styles": {
+    "color": { "background": "#FAF7F2", "text": "#1F2937" },
+    "typography": {
+      "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      "fontSize": "1.05rem",
+      "lineHeight": "1.65"
+    },
+    "elements": {
+      "h1": { "typography": { "fontFamily": "Georgia, 'Times New Roman', serif", "fontWeight": "700" } },
+      "h2": { "typography": { "fontFamily": "Georgia, 'Times New Roman', serif", "fontWeight": "700" } },
+      "h3": { "typography": { "fontFamily": "Georgia, 'Times New Roman', serif", "fontWeight": "700" } },
+      "link": { "color": { "text": "#1B4332" } },
+      "button": { "border": { "radius": "999px" } }
+    },
+    "blocks": {
+      "core/button": {
+        "variations": {
+          "fill": { "color": { "background": "#1B4332", "text": "#FFFFFF" } }
+        }
+      }
+    }
+  },
+  "templateParts": [
+    { "area": "header", "name": "header", "title": "En-tête" },
+    { "area": "footer", "name": "footer", "title": "Pied de page" }
+  ]
+}
